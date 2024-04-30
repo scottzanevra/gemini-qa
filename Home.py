@@ -15,7 +15,7 @@ create_session_state()
 
 # SET APPLICATION DETAILS
 st.set_page_config(page_title=config['application']['name'],
-                   page_icon=":robot:",
+                   page_icon='✨',
                    layout=config['application']['layout'],
                    initial_sidebar_state="auto",
                    menu_items=None)

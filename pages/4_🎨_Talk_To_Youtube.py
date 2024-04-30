@@ -13,7 +13,7 @@ create_session_state()
 
 # SET APPLICATION DETAILS
 st.set_page_config(page_title=config['application']['name'],
-                   page_icon=":robot:",
+                   page_icon='✨',
                    layout=config['application']['layout'],
                    initial_sidebar_state="auto",
                    menu_items=None)
@@ -64,7 +64,9 @@ if submit and question:
             st.error(f"An Error occurred {e}")
 
 with st.expander("See some example Videos, questions, and answers"):
-    tab_img1, tab_img2 = st.tabs(["Alphabet 2024 Q1 Earnings Call", "ANZ Bank Elliott: record result driven by all divisions"])
+    tab_img1, tab_img2, tab_img3, tab_img4 = st.tabs(["Alphabet 2024 Q1 Earnings Call",
+                                                      "ANZ Bank Elliott", "Google Next 2024 Keynote",
+                                                      "Learn Python"])
     with tab_img1:
         st.markdown("## Video")
         url_1 = "https://www.youtube.com/watch?v=A2O2f5dlzcE"
@@ -86,6 +88,26 @@ with st.expander("See some example Videos, questions, and answers"):
         st.markdown("## Questions")
         st.markdown("1) Can you tell us about ANZ Plus and the Suncorp Bank acquisition?")
         st.markdown("2) What are the Emerging opportunities in Asia-Pacific")
+    with tab_img3:
+        st.markdown("## Video")
+        url_3 = "https://www.youtube.com/watch?v=V6DJYGn2SFk"
+        url_3_video_id = get_video_id(url_3)
+        st.markdown(f"Google Cloud Next '24 Opening Keynote [link]({url_3})")
+        st.markdown(f"URL: {url_3}")
+        st.image(f"http://img.youtube.com/vi/{url_3_video_id}/0.jpg", width=500)
+        st.markdown("## Questions")
+        st.markdown("1) What were the major announcements?")
+        st.markdown("2) What are agents?")
+    with tab_img4:
+        st.markdown("## Video")
+        url_4 = "https://www.youtube.com/watch?v=kqtD5dpn9C8"
+        url_4_video_id = get_video_id(url_4)
+        st.markdown(f"Python for Beginners - Learn Python in 1 Hour [link]({url_4})")
+        st.markdown(f"URL: {url_4}")
+        st.image(f"http://img.youtube.com/vi/{url_4_video_id}/0.jpg", width=500)
+        st.markdown("## Questions")
+        st.markdown("1) Write me a lesson plan?")
+        st.markdown("2) What are the different types of loops?")
 
 
 

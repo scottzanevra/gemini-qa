@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import logging
 from utils.config_utils import get_config
-from utils.helpers import pdf_to_temp, display_pdf, input_data_setup, get_gemini_response
+from utils.helpers import upload_to_temp, display_pdf, input_data_setup, get_gemini_response
 from utils.st_utils import create_session_state
 
 
@@ -14,7 +14,7 @@ create_session_state()
 
 # SET APPLICATION DETAILS
 st.set_page_config(page_title=config['application']['name'],
-                   page_icon=":robot:",
+                   page_icon='✨',
                    layout=config['application']['layout'],
                    initial_sidebar_state="auto",
                    menu_items=None)
@@ -39,7 +39,7 @@ with tab1:
     with st.expander("Show uploaded Doc"):
         try:
             if uploaded_file is not None:
-                uploaded_file_temp = pdf_to_temp(uploaded_file)
+                uploaded_file_temp = upload_to_temp(uploaded_file)
                 st.markdown(display_pdf(uploaded_file_temp), unsafe_allow_html=True)
         except Exception as e:
             st.error(f"An Error occurred {e}")
@@ -61,21 +61,6 @@ with tab2:
                 "RAG enhances the model's ability to generate accurate and informative responses by grounding "
                 "its outputs in relevant factual information, making it useful in applications like question "
                 "answering, summarization, and chatbot conversations.")
-
-    # input = st.text_input("Input Prompt: ", key="input.rag")
-    # uploaded_file = st.file_uploader("Choose Your PDF File", type='pdf', key='uploaded.rag')
-    # pdf = ''
-    #
-    # submit = st.button("Ask the question")
-    # if uploaded_file and submit:
-    #     with st.spinner(f"Data processing underway... Please hold"):
-    #         texts = load_pdf_split(uploaded_file)
-    #         embeddings_model = load_embedding_model()
-    #         vector_database = store_vector(texts, embeddings_model)
-    #     with st.spinner(f"Gemini is responding... Please hold"):
-    #         response = question_chain_response(vector_database, input)
-    #         st.subheader("The Response is")
-    #         st.write(response['output_text'])
 
 with tab3:
     st.markdown("RAG (Retrieval-Augmented Generation) and long context windows are two approaches to enhance the knowledge and capabilities of language models.")

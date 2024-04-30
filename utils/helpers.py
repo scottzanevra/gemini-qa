@@ -44,7 +44,7 @@ def input_data_setup(uploaded_file):
         raise FileNotFoundError("No file uploaded")
 
 
-def pdf_to_temp(uploaded_file):
+def upload_to_temp(uploaded_file, suffix=".pdf"):
     if uploaded_file is not None:
         # Read the file into bytes
         bytes_data = uploaded_file.read()
@@ -53,7 +53,7 @@ def pdf_to_temp(uploaded_file):
         file_like_object = io.BytesIO(bytes_data)
 
         # Save BytesIO object to a temporary file
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
             tmp.write(file_like_object.read())
             tmp_path = tmp.name
             return tmp_path
