@@ -1,0 +1,20 @@
+testing: True
+
+application:
+  name: "Q&A with Gemini"
+  layout: "wide"
+
+gcp:
+  project_id: "dataplex-demo-342803"
+  region: "us-central1"
+
+llm:
+  model_options:
+    - "gemini-1.5-pro-preview-0409"
+    - "gemini-experimental"
+    - "gemini-1.0-pro-vision-001"
+  model_region: "us-central1"
+
+
+
+
