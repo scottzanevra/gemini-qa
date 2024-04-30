@@ -4,6 +4,7 @@ import logging
 from utils.config_utils import get_config
 from utils.helpers import upload_to_temp, display_pdf, input_data_setup, get_gemini_response
 from utils.st_utils import create_session_state
+from streamlit_pdf_viewer import pdf_viewer
 
 
 logger = logging.getLogger()
@@ -37,10 +38,11 @@ with tab1:
     uploaded_file = st.file_uploader("Choose Your PDF File", type='pdf')
 
     with st.expander("Show uploaded Doc"):
+        container_pdf, container_chat = st.columns([50, 50])
         try:
             if uploaded_file is not None:
-                uploaded_file_temp = upload_to_temp(uploaded_file)
-                st.markdown(display_pdf(uploaded_file_temp), unsafe_allow_html=True)
+                binary_data = uploaded_file.getvalue()
+                pdf_viewer(input=binary_data, width=700, height=1000)
         except Exception as e:
             st.error(f"An Error occurred {e}")
 
