@@ -12,7 +12,6 @@ logger.setLevel(logging.INFO)
 config = get_config(config_file="config.yml")
 create_session_state()
 
-
 # SET APPLICATION DETAILS
 st.set_page_config(page_title=config['application']['name'],
                    page_icon='✨',
@@ -22,3 +21,35 @@ st.set_page_config(page_title=config['application']['name'],
 
 st.title("Q&A with :blue[Gemini Pro]")
 
+st.subheader(" About this app")
+st.markdown(
+    "Imagine asking a YouTube video about its key points, or requesting a summary of a complex documentary. "
+    "With Gemini's multimodal capabilities, this is no longer science fiction. "
+    "By analyzing video content, including visuals and audio, Gemini allows you to engage in a natural "
+    "conversation with any video. Simply input a YouTube link or upload your own video file and start asking "
+    "questions. Gemini will process the video's content, including speech and on-screen text, and provide "
+    "insightful answers, summaries, or even translations. It's like having a personal assistant that "
+    "understands and responds to your questions about any video.")
+
+st.subheader(f"Talk to Images")
+st.markdown("Gemini's advanced image understanding capabilities allow users to ask detailed "
+             "questions about images. By simply uploading or linking to an image, users can inquire "
+             "about its content, context, or even hidden details. Gemini can identify objects, analyze scenes, "
+             "and provide insightful interpretations, making it a powerful tool for exploring visual information.")
+
+st.subheader(f"Talk to Large Documents using the large context window of Gemini")
+st.markdown("Gemini's large context window allows for the comprehension of extensive PDF documents, including "
+                "complex charts and tables. By incorporating the entire document into its analysis, "
+                "Gemini can accurately answer questions about specific data points, relationships between different "
+                "sections, and overall trends. This comprehensive understanding eliminates the need for manual scrolling "
+                "and searching, streamlining the process of extracting valuable insights from lengthy and intricate PDFs.")
+
+st.subheader(f"Talk to Youtube")
+st.markdown(" interact with any YouTube video through natural conversation, asking questions, seeking summaries, "
+            "or even getting translations. Whether you're a student, researcher, or simply curious, "
+            "Talk to YouTube unlocks a new way to engage with video content and extract valuable insights.")
+
+st.subheader(f"Talk to a Video")
+st.markdown("Upload your own video file and start asking questions. Gemini will process the video's content, "
+            "including speech and on-screen text, and provide insightful answers, summaries, or even translations. "
+            "It's like having a personal assistant that understands and responds to your questions about any video.")

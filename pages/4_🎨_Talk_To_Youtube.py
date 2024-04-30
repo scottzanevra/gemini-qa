@@ -21,8 +21,11 @@ st.set_page_config(page_title=config['application']['name'],
 st.title(f"Q&A with :blue[{st.session_state['model_name']}]")
 
 st.subheader(f"Talk to Youtube")
-#
-#
+st.markdown(" interact with any YouTube video through natural conversation, asking questions, seeking summaries, "
+            "or even getting translations. Whether you're a student, researcher, or simply curious, "
+            "Talk to YouTube unlocks a new way to engage with video content and extract valuable insights.")
+
+
 prompt = """Welcome, Video Summarizer! Your task is to distill the essence of a given YouTube video transcript into a 
 concise summary. Your summary should capture the key points and essential information, 
 presented in bullet points, within a 250-word limit. Let's dive into the provided transcript and 
@@ -72,7 +75,7 @@ with st.expander("See some example Videos, questions, and answers"):
         url_1 = "https://www.youtube.com/watch?v=A2O2f5dlzcE"
         url_1_video_id = get_video_id(url_1)
         st.markdown(f"Alphabet 2024 Q1 Earnings Call [link]({url_1})")
-        st.markdown(f"URL: ({url_1})")
+        st.markdown(f"URL: {url_1}")
         st.image(f"http://img.youtube.com/vi/{url_1_video_id}/0.jpg", width=500)
         st.markdown("## Questions")
         st.markdown("1) How is Alphabet approaching the integration of AI, particularly in Search?")
@@ -85,7 +88,7 @@ with st.expander("See some example Videos, questions, and answers"):
         url_2 = "https://www.youtube.com/watch?v=bTs1uZKri4Y"
         url_2_video_id = get_video_id(url_2)
         st.markdown(f"ANZ Bank Elliott: record result driven by all divisions [link]({url_2})")
-        st.markdown(f"URL: ({url_2})")
+        st.markdown(f"URL: {url_2}")
         st.image(f"http://img.youtube.com/vi/{url_2_video_id}/0.jpg", width=500)
         st.markdown("## Questions")
         st.markdown("1) Can you tell us about ANZ Plus and the Suncorp Bank acquisition?")

@@ -4,8 +4,10 @@ import tempfile
 import vertexai
 import streamlit as st
 from vertexai.generative_models import GenerativeModel, Part
-from langchain.document_loaders import YoutubeLoader
+from langchain.chains.question_answering import load_qa_chain
+from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import Chroma
 
 from utils.config_utils import get_config
 from utils.st_utils import create_session_state
@@ -17,13 +19,17 @@ vertexai.init(project=config['gcp']['project_id'], location=config['gcp']['regio
 create_session_state()
 
 
+def load_model():
+    return GenerativeModel(st.session_state['model_name'])
+
+
 def get_gemini_response(query, data):
     _generation_config = {
         "max_output_tokens": st.session_state['max_output_tokens'],
         "temperature": st.session_state['temperature'],
         "top_p": st.session_state['top_p'] ,
     }
-    model = GenerativeModel(st.session_state['model_name'])
+    model = load_model()
     response = model.generate_content([query, data],
                                       generation_config=_generation_config
                                       # stream=True
@@ -80,6 +86,28 @@ def get_transcription(video_id):
 def get_video_id(youtube_link):
     return youtube_link.split("=")[1]
 
+
+def load_pdf_split(tmp_path):
+    loader = PyPDFLoader(tmp_path)
+    pages = loader.load_and_split()
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+    content = "\n\n".join(str(page.page_content) for page in pages)
+    texts = text_splitter.split_text(content)
+    return texts
+
+
+def load_embedding():
+    from langchain.embeddings import VertexAIEmbeddings
+    return VertexAIEmbeddings()
+
+
+def question_chain_response(vector_database, user_input):
+    llm = VertexAI(model_name="gemini-pro", max_output_tokens=1000, temperature=0.3)
+    chain = load_qa_chain(model, chain_type='stuff')
+    docs = vector_database.get_relevant_documents(user_input)
+
+    response = chain({'input_documents': docs, 'question': user_input}, return_only_outputs=True)
+    return response
 
 if __name__ == "__main__":
     url = "https://www.youtube.com/watch?v=bTs1uZKri4Y"
