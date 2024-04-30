@@ -78,6 +78,8 @@ with st.expander("See some example Videos, questions, and answers"):
         st.markdown("1) How is Alphabet approaching the integration of AI, particularly in Search?")
         st.markdown("2) How is Alphabet managing the financial implications of its AI focus?")
         st.markdown("3) How is YouTube evolving its offerings and monetization strategies?")
+        st.markdown("4) What are the key points mentioned by Sundar and Ruth?")
+        st.markdown("5) What were the Google Cloud revenues for the quarter? and what time were they mentioned")
     with tab_img2:
         st.markdown("## Video")
         url_2 = "https://www.youtube.com/watch?v=bTs1uZKri4Y"
