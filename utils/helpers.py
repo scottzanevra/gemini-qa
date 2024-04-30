@@ -101,13 +101,13 @@ def load_embedding():
     return VertexAIEmbeddings()
 
 
-def question_chain_response(vector_database, user_input):
-    llm = VertexAI(model_name="gemini-pro", max_output_tokens=1000, temperature=0.3)
-    chain = load_qa_chain(model, chain_type='stuff')
-    docs = vector_database.get_relevant_documents(user_input)
-
-    response = chain({'input_documents': docs, 'question': user_input}, return_only_outputs=True)
-    return response
+# def question_chain_response(vector_database, user_input):
+#     llm = VertexAI(model_name="gemini-pro", max_output_tokens=1000, temperature=0.3)
+#     chain = load_qa_chain(model, chain_type='stuff')
+#     docs = vector_database.get_relevant_documents(user_input)
+#
+#     response = chain({'input_documents': docs, 'question': user_input}, return_only_outputs=True)
+#     return response
 
 if __name__ == "__main__":
     url = "https://www.youtube.com/watch?v=bTs1uZKri4Y"
