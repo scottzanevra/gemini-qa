@@ -65,6 +65,10 @@ with st.expander("See some example Documents, questions, and answers"):
     tab_img1, tab_img2 = st.tabs(["Bike Accident", "Something elese"])
     with tab_img1:
         st.markdown("## Questions")
+        st.markdown("1) What happened in this video")
+        st.markdown("2) Who was at fault")
+        st.markdown("3) What would be the likely injuries")
+        st.video("images/BikeAccident1.mp4", format="video/mp4")
 
     with tab_img2:
         st.markdown("## Questions")
