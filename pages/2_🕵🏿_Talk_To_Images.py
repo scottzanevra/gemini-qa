@@ -54,8 +54,8 @@ if submit:
             st.error(f"An Error occurred {e}")
 
 with st.expander("See some example Documents, questions, and answers"):
-    tab_img1, tab_img2, tab_img3, tab_img4 = st.tabs(["Financial Line Chart", "Draw Code", "Damaged Car Assessment",
-                                                      "Electrical Diagram"])
+    tab_img1, tab_img2, tab_img3, tab_img4, tab_img5 = st.tabs(["Financial Line Chart", "Draw Code", "Damaged Car Assessment",
+                                                      "Electrical Diagram", "Terraform"])
     with tab_img1:
         st.markdown("## Questions")
         st.markdown("1) What does this chart represent")
@@ -87,5 +87,12 @@ with st.expander("See some example Documents, questions, and answers"):
         st.markdown("## Image")
         st.image('images/elec_level_0.png', width=500)
         st.image('images/elec_level_1.png', width=500)
+
+    with tab_img5:
+        st.markdown("## Questions")
+        st.markdown("1) Write the terraform code for this architecture")
+        st.markdown("2) What IAM permission are required")
+        st.markdown("## Image")
+        st.image('images/architecture.png', width=500)
 
 

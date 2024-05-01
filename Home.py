@@ -22,14 +22,11 @@ st.set_page_config(page_title=config['application']['name'],
 st.title("Q&A with :blue[Gemini Pro]")
 
 st.subheader(" About this app")
-st.markdown(
-    "Imagine asking a YouTube video about its key points, or requesting a summary of a complex documentary. "
-    "With Gemini's multimodal capabilities, this is no longer science fiction. "
-    "By analyzing video content, including visuals and audio, Gemini allows you to engage in a natural "
-    "conversation with any video. Simply input a YouTube link or upload your own video file and start asking "
-    "questions. Gemini will process the video's content, including speech and on-screen text, and provide "
-    "insightful answers, summaries, or even translations. It's like having a personal assistant that "
-    "understands and responds to your questions about any video.")
+st.markdown("## Your All-in-One Conversational Companion")
+st.markdown("This app leverages Gemini's multimodal capabilities to transform the way users interact with various "
+            "forms of "
+            "media. Engage in dynamic conversations that seamlessly incorporate videos, podcasts, YouTube content, "
+            "and images.")
 
 st.subheader(f"Talk to Images")
 st.markdown("Gemini's advanced image understanding capabilities allow users to ask detailed "
