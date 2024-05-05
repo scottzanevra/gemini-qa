@@ -19,7 +19,7 @@ st.set_page_config(page_title=config['application']['name'],
                    initial_sidebar_state="auto",
                    menu_items=None)
 
-st.title("Q&A with :blue[Gemini Pro]")
+st.title(f"Q&A with :blue[{st.session_state['model_name']}]")
 
 st.subheader(" About this app")
 st.markdown("## Your All-in-One Conversational Companion")
@@ -50,3 +50,8 @@ st.subheader(f"Talk to a Video")
 st.markdown("Upload your own video file and start asking questions. Gemini will process the video's content, "
             "including speech and on-screen text, and provide insightful answers, summaries, or even translations. "
             "It's like having a personal assistant that understands and responds to your questions about any video.")
+
+st.subheader("Considerations")
+st.markdown("- This app has been optimised for simplicity and general ease of use")
+st.markdown("- It has NOT been optimised for any particular task nor instructed to provide answers in a certain way")
+st.markdown("- Although files uploaded by the user are NOT stored, please do not upload any sensitive or restricted content")

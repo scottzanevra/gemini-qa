@@ -61,7 +61,10 @@ with tab1:
             except Exception as e:
                 st.error(f"An Error occurred {e}")
 
-with st.expander("See some example Documents, questions, and answers"):
+with st.expander("Example Use Cases"):
+    st.markdown("Here are some example use case to get you started. Feel free to download the respective image/pdf, etc"
+                "and upload it via the upload option. There are also a couple of question to ask alongside each of the "
+                "images/pdfs if you want some ideas.")
     tab_img1, tab_img2 = st.tabs(["Bike Accident", "Something elese"])
     with tab_img1:
         st.markdown("## Questions")

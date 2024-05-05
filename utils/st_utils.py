@@ -4,6 +4,7 @@ from utils.config_utils import get_config
 
 config = get_config(config_file="config.yml")
 
+
 def reset_session() -> None:
     st.session_state['temperature'] = 1
     st.session_state['model_name'] = config['llm']['model_options'][0]

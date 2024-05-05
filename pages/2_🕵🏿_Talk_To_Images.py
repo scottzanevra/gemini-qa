@@ -39,7 +39,7 @@ with st.expander("Show uploaded Image"):
     if uploaded_file is not None:
         try:
             image = Image.open(uploaded_file)
-            st.image(image, caption="Uploaded Image.", width=300)
+            st.image(image, caption="Uploaded Image.", width=1000)
         except Exception as e:
             st.error("Image can not be loaded")
 
@@ -53,7 +53,11 @@ if submit:
         except Exception as e:
             st.error(f"An Error occurred {e}")
 
-with st.expander("See some example Documents, questions, and answers"):
+with st.expander("Example Use Cases"):
+    st.markdown("Here are some example use case to get you started. Feel free to download the respective image/pdf, etc"
+                "and upload it via the upload option. There are also a couple of question to ask alongside each of the "
+                "images/pdfs if you want some ideas.")
+
     tab_img1, tab_img2, tab_img3, tab_img4, tab_img5 = st.tabs(["Financial Line Chart", "Draw Code", "Damaged Car Assessment",
                                                       "Electrical Diagram", "Terraform"])
     with tab_img1:

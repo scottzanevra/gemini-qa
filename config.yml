@@ -1,5 +1,3 @@
-testing: True
-
 application:
   name: "Q&A with Gemini"
   layout: "wide"

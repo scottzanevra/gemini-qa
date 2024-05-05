@@ -23,5 +23,5 @@ $ pip install -r requirements.txt
 ## Run Streamlit app Locally (from the project root directory)
 
 ```
-$ streamlit run app.py
+$ streamlit run Home.py
 ```

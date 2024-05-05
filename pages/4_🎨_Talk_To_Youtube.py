@@ -20,13 +20,18 @@ st.set_page_config(page_title=config['application']['name'],
 
 st.title(f"Q&A with :blue[{st.session_state['model_name']}]")
 
-st.subheader(f"Talk to Youtube")
-st.markdown(" interact with any YouTube video through natural conversation, asking questions, seeking summaries, "
+st.subheader(f"Talk to Youtube (using the Transcription)")
+st.markdown("Interact with any YouTube video through natural conversation, asking questions, seeking summaries, "
             "or even getting translations. Whether you're a student, researcher, or simply curious, "
             "Talk to YouTube unlocks a new way to engage with video content and extract valuable insights.")
 
+st.markdown("Note: This uses the Youtube transcription, not the video itself. If you want to analyse the video, you"
+            "will need to download it and use the Talk to Video page of the application")
 
-prompt = """Welcome, Video Summarizer! Your task is to distill the essence of a given YouTube video transcript into a 
+st.markdown("Not all Youtube videos have a transcription, you will get an error if this is the case.")
+
+
+prompt = """Your task is to distill the essence of a given YouTube video transcript into a 
 concise summary. Your summary should capture the key points and essential information, 
 presented in bullet points, within a 250-word limit. Let's dive into the provided transcript and 
 extract the vital details for our audience."""
@@ -66,7 +71,11 @@ if submit and question:
         except Exception as e:
             st.error(f"An Error occurred {e}")
 
-with st.expander("See some example Videos, questions, and answers"):
+with st.expander("Example Use Cases"):
+    st.markdown("Here are some example use case to get you started. Feel free to download the respective image/pdf, etc"
+                "and upload it via the upload option. There are also a couple of question to ask alongside each of the "
+                "images/pdfs if you want some ideas.")
+
     tab_img1, tab_img2, tab_img3, tab_img4 = st.tabs(["Alphabet 2024 Q1 Earnings Call",
                                                       "ANZ Bank Elliott", "Google Next 2024 Keynote",
                                                       "Learn Python"])

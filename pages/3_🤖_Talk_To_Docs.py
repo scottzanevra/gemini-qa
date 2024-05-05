@@ -145,7 +145,11 @@ with tab3:
                 "when maintaining a broader context within the text itself is essential for understanding and "
                 "generating coherent responses.")
 
-with st.expander("See some example Documents, questions, and answers"):
+with st.expander("Example Use Cases"):
+    st.markdown("Here are some example use case to get you started. Feel free to download the respective image/pdf, etc"
+                "and upload it via the upload option. There are also a couple of question to ask alongside each of the "
+                "images/pdfs if you want some ideas.")
+
     tab_docs1, tab_docs2, tab_docs3 = st.tabs(["Alphabet Earning Report", "Centrica Annual Report", "Climate Risk Assessment"])
     with tab_docs1:
         try:
@@ -156,6 +160,7 @@ with st.expander("See some example Documents, questions, and answers"):
             st.markdown("## Questions")
             st.markdown("1) breakdown the revenue streams of alphabet by dollars (answer on Page 33)")
             st.markdown("2) cloud revenue between 2021 and 2022 (answer on Pages 23)")
+            st.markdown("3) What are the operational cost of youtube?")
 
         except Exception as e:
             st.error(f"An Error occurred {e}")
@@ -166,7 +171,6 @@ with st.expander("See some example Documents, questions, and answers"):
             google_url = "https://www.centrica.com/media/lj2nlycx/centrica-annual-report-and-accounts-2022.pdf"
             st.markdown("### Centrica annual report and accounts-2022 [link](%s)" % google_url)
             st.markdown("Page count: 264")
-
             st.markdown("## Questions")
             st.markdown("1) provide a summary of Scott Wheway Chairman’s Statement (answer on Page 4)")
             st.markdown("2) What was the Group adjusted operating profit (answer on Pages 3, 18, 19, 123)")
@@ -180,8 +184,10 @@ with st.expander("See some example Documents, questions, and answers"):
             st.markdown("### [link](%s)" % rt_url)
             st.markdown("")
             st.markdown("## Questions")
-            st.markdown("1) ")
-            st.markdown("2) ")
+            st.markdown("1) Are greenhouse gas (GHG) emissions independently assured?")
+            st.markdown("2) How are they performing against its targets?")
+            st.markdown("3) What climate-related transition risks is the customer vulnerable to?")
+            st.markdown("4) What are the potential financial impacts to the customer due to physical risks?")
         except Exception as e:
             st.error(f"An Error occurred {e}")
 
