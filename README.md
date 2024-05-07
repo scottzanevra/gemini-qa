@@ -25,3 +25,28 @@ $ pip install -r requirements.txt
 ```
 $ streamlit run Home.py
 ```
+
+# Deploy Streamlit-Gemini
+
+```
+export GOOGLE_CLOUD_PROJECT=""
+export CONTAINER_NAME='streamlit-gemini'
+export APP_NAME='streamlit-gemini'
+export REGION="us-central1"
+export AR_NAME="streamlit" 
+export AR_URI=${REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/${AR_NAME}
+export SERVICE_ACCOUNT=""
+```
+```
+gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin https://us-central1-docker.pkg.dev
+
+sudo docker build --no-cache -t ${AR_URI}/${CONTAINER_NAME} . && sudo docker push ${AR_URI}/${CONTAINER_NAME} && gcloud run deploy ${APP_NAME} \
+--image=${AR_URI}/${CONTAINER_NAME} \
+--platform=managed \
+--service-account=${SERVICE_ACCOUNT} \
+--region=${REGION} \
+--cpu=2 --memory=1Gi \
+--max-instances=2 \
+--allow-unauthenticated \
+--port 8501
+```
