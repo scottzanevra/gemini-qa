@@ -1,7 +1,14 @@
 steps:
+# Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  script: |
-    docker build -t us-central1-docker.pkg.dev/dataplex-demo-342803/streamlit/streamlit-gemini:tag1 .
-  automapSubstitutions: true
+  args: ['build', '-t', 'gcr.io/dataplex-demo-342803/streamlit/streamlit-gemini', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/dataplex-demo-342803/streamlit/streamlit-gemini']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'sa-genai-demo@dataplex-demo-342803.iam.gserviceaccount.com	', '--image',
+         'gcr.io/dataplex-demo-342803/streamlit/streamlit-gemini', '--region', 'us-central1']
 images:
-- 'us-central1-docker.pkg.dev/dataplex-demo-342803/streamlit/streamlit-gemini:tag1'
+- gcr.io/dataplex-demo-342803/streamlit/streamlit-gemini

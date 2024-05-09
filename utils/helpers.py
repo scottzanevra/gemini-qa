@@ -4,10 +4,6 @@ import tempfile
 import vertexai
 import streamlit as st
 from vertexai.generative_models import GenerativeModel, Part
-from langchain.chains.question_answering import load_qa_chain
-from langchain.document_loaders import PyPDFLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
 
 from utils.config_utils import get_config
 from utils.st_utils import create_session_state
@@ -87,18 +83,18 @@ def get_video_id(youtube_link):
     return youtube_link.split("=")[1]
 
 
-def load_pdf_split(tmp_path):
-    loader = PyPDFLoader(tmp_path)
-    pages = loader.load_and_split()
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-    content = "\n\n".join(str(page.page_content) for page in pages)
-    texts = text_splitter.split_text(content)
-    return texts
-
-
-def load_embedding():
-    from langchain.embeddings import VertexAIEmbeddings
-    return VertexAIEmbeddings()
+# def load_pdf_split(tmp_path):
+#     loader = PyPDFLoader(tmp_path)
+#     pages = loader.load_and_split()
+#     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+#     content = "\n\n".join(str(page.page_content) for page in pages)
+#     texts = text_splitter.split_text(content)
+#     return texts
+#
+#
+# def load_embedding():
+#     from langchain.embeddings import VertexAIEmbeddings
+#     return VertexAIEmbeddings()
 
 
 # def question_chain_response(vector_database, user_input):
