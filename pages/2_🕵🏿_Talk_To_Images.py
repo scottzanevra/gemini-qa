@@ -34,6 +34,22 @@ submit=st.button("Submit Question")
 st.title("")
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
+
+# picture = st.camera_input("Take a picture")
+#
+# if picture:
+#     st.image(picture)
+
+# img_file_buffer = st.camera_input("Take a picture")
+#
+# if img_file_buffer is not None:
+#     # To read image file buffer as bytes:
+#     bytes_data = img_file_buffer.getvalue()
+#     # Check the type of bytes_data:
+#     # Should output: <class 'bytes'>
+#     st.write(type(bytes_data))
+
+
 with st.expander("Show uploaded Image"):
     image=""
     if uploaded_file is not None:
@@ -58,8 +74,9 @@ with st.expander("Example Use Cases"):
                 "and upload it via the upload option. There are also a couple of question to ask alongside each of the "
                 "images/pdfs if you want some ideas.")
 
-    tab_img1, tab_img2, tab_img3, tab_img4, tab_img5 = st.tabs(["Financial Line Chart", "Draw Code", "Damaged Car Assessment",
-                                                      "Electrical Diagram", "Terraform"])
+    tab_img1, tab_img2, tab_img3, tab_img4, tab_img5, tab_img6, tab_img7 = st.tabs(["Financial Line Chart", "Draw Code",
+                                                                          "Damaged Car Assessment","Electrical Diagram",
+                                                                          "Architecture", "UML diagram", "Database ER"])
     with tab_img1:
         st.markdown("## Questions")
         st.markdown("1) What does this chart represent")
@@ -98,5 +115,18 @@ with st.expander("Example Use Cases"):
         st.markdown("2) What IAM permission are required")
         st.markdown("## Image")
         st.image('images/architecture.png', width=500)
+
+    with tab_img6:
+        st.markdown("## Questions")
+        st.markdown("1) Translate to python")
+        st.markdown("## Image")
+        st.image('images/Bank_UML_Diagram.png', width=800)
+
+    with tab_img7:
+        st.markdown("## Questions")
+        st.markdown("1) Translate to a data vault schema")
+        st.markdown("2) Translate to data vault using DBT")
+        st.markdown("## Image")
+        st.image('images/ecommerce-database-er-diagram.png', width=800)
 
 

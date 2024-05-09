@@ -177,13 +177,14 @@ with st.expander("Example Use Cases"):
         except Exception as e:
             st.error(f"An Error occurred {e}")
 
-    with tab_docs2:
+    with tab_docs3:
         try:
             st.markdown("## Document")
-            rt_url = ""
+            rt_url = "https://cdn-rio.dataweavers.io/-/media/content/documents/invest/reports/climate-change-reports/rt-industry-association-disclosure-2023.pdf?rev=1cefffc9a6f14e15a69f379e66ac59cf"
             st.markdown("### [link](%s)" % rt_url)
             st.markdown("")
             st.markdown("## Questions")
+            st.markdown("1) explain the 2023 Scope 3 emissions on page 28")
             st.markdown("1) Are greenhouse gas (GHG) emissions independently assured?")
             st.markdown("2) How are they performing against its targets?")
             st.markdown("3) What climate-related transition risks is the customer vulnerable to?")
