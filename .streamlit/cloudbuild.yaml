@@ -1,0 +1,7 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  script: |
+    docker build -t us-central1-docker.pkg.dev/dataplex-demo-342803/streamlit/streamlit-gemini:tag1 .
+  automapSubstitutions: true
+images:
+- 'us-central1-docker.pkg.dev/dataplex-demo-342803/streamlit/streamlit-gemini:tag1'
