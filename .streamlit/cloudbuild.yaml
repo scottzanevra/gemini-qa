@@ -1,14 +1,14 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/dataplex-demo-342803/streamlit/streamlit-gemini', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/dataplex-demo-342803/streamlit', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/dataplex-demo-342803/streamlit/streamlit-gemini']
+  args: ['push', 'us-central1-docker.pkg.dev/dataplex-demo-342803/streamlit']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
   args: ['run', 'deploy', 'sa-genai-demo@dataplex-demo-342803.iam.gserviceaccount.com	', '--image',
          'gcr.io/dataplex-demo-342803/streamlit/streamlit-gemini', '--region', 'us-central1']
 images:
-- gcr.io/dataplex-demo-342803/streamlit/streamlit-gemini
+- us-central1-docker.pkg.dev/dataplex-demo-342803/streamlit
