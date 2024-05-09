@@ -1,6 +1,5 @@
 import streamlit as st
 import logging
-from langchain_community.document_loaders import YoutubeLoader
 from utils.config_utils import get_config
 from utils.helpers import get_gemini_response, get_transcription, get_video_id
 from utils.st_utils import create_session_state
