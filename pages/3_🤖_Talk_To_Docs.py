@@ -206,6 +206,7 @@ with st.expander("Example Use Cases"):
             st.markdown("2) What are the types of excess payments")
             st.markdown("3) What is the Unoccupancy Clause")
             st.markdown("4) Is temporary accommodation provided")
+            st.markdown("5) I travel for long periods for work, is there anything i should be concerned about with regards to my home and contents insurance?")
 
         except Exception as e:
             st.error(f"An Error occurred {e}")
