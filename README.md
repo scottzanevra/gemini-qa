@@ -80,9 +80,28 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com \
     --role=roles/aiplatform.modelServiceAgent  
 
+```bash
+gcloud run deploy hello --image us-docker.pkg.dev/cloudrun/container/hello --region=us-west1
 ```
 
+```shell
+gcloud compute backend-services create hello-backend-service --global
 ```
+
+```shell
+gcloud compute backend-services add-backend hello-backend-service \
+       --global \
+       --network-endpoint-group=neg-hello-us-west1 \
+       --network-endpoint-group-region=us-west1
+```
+
+```shell
+gcloud compute network-endpoint-groups create neg-hello-us-west1 \
+       --region=us-west1 \
+       --network-endpoint-type=serverless  \
+       --cloud-run-service=hello
+```
+
 export GOOGLE_CLOUD_PROJECT=""
 export CONTAINER_NAME='streamlit-gemini'
 export APP_NAME='streamlit-gemini'
