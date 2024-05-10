@@ -150,7 +150,8 @@ with st.expander("Example Use Cases"):
                 "and upload it via the upload option. There are also a couple of question to ask alongside each of the "
                 "images/pdfs if you want some ideas.")
 
-    tab_docs1, tab_docs2, tab_docs3 = st.tabs(["Alphabet Earning Report", "Centrica Annual Report", "Climate Risk Assessment"])
+    tab_docs1, tab_docs2, tab_docs3, tab_docs4 = st.tabs(["Alphabet Earning Report", "Centrica Annual Report",
+                                                          "Climate Risk Assessment", "Insurance Policy"])
     with tab_docs1:
         try:
             st.markdown("## Document")
@@ -180,15 +181,32 @@ with st.expander("Example Use Cases"):
     with tab_docs3:
         try:
             st.markdown("## Document")
+            st.markdown("Rio Tinto Climate change report")
             rt_url = "https://cdn-rio.dataweavers.io/-/media/content/documents/invest/reports/climate-change-reports/rt-industry-association-disclosure-2023.pdf?rev=1cefffc9a6f14e15a69f379e66ac59cf"
             st.markdown("### [link](%s)" % rt_url)
             st.markdown("")
             st.markdown("## Questions")
             st.markdown("1) explain the 2023 Scope 3 emissions on page 28")
-            st.markdown("1) Are greenhouse gas (GHG) emissions independently assured?")
-            st.markdown("2) How are they performing against its targets?")
-            st.markdown("3) What climate-related transition risks is the customer vulnerable to?")
-            st.markdown("4) What are the potential financial impacts to the customer due to physical risks?")
+            st.markdown("2) Are greenhouse gas (GHG) emissions independently assured?")
+            st.markdown("3) How are they performing against its targets?")
+            st.markdown("4) What climate-related transition risks is the customer vulnerable to?")
+            st.markdown("5) What are the potential financial impacts to the customer due to physical risks?")
+        except Exception as e:
+            st.error(f"An Error occurred {e}")
+
+    with tab_docs4:
+        try:
+            st.markdown("## Document")
+            st.markdown("Suncorp Home & Contents Product Disclosure Statement (PDS)")
+            sc_url = "https://www.suncorp.com.au/content/dam/suncorp/insurance/suncorp-insurance/documents/home-and-contents/home/suncorp-insurance-home-contents-insurance-product-disclosure-statement.pdf"
+            st.markdown("### [link](%s)" % sc_url)
+            st.markdown("")
+            st.markdown("## Questions")
+            st.markdown("1) What am i covered for in a flood?")
+            st.markdown("2) What are the types of excess payments")
+            st.markdown("3) What is the Unoccupancy Clause")
+            st.markdown("4) Is temporary accommodation provided")
+
         except Exception as e:
             st.error(f"An Error occurred {e}")
 
