@@ -182,7 +182,7 @@ with st.expander("Example Use Cases"):
         try:
             st.markdown("## Document")
             st.markdown("Rio Tinto Climate change report")
-            rt_url = "https://cdn-rio.dataweavers.io/-/media/content/documents/invest/reports/climate-change-reports/rt-industry-association-disclosure-2023.pdf?rev=1cefffc9a6f14e15a69f379e66ac59cf"
+            rt_url = "https://cdn-rio.dataweavers.io/-/media/content/documents/invest/reports/climate-change-reports/rt-climate-report-2023.pdf?rev=9ccb7b1a67a149b4a08ae92d8be223be"
             st.markdown("### [link](%s)" % rt_url)
             st.markdown("")
             st.markdown("## Questions")

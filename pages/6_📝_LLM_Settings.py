@@ -16,25 +16,26 @@ st.set_page_config(page_title=config['application']['name'],
                    initial_sidebar_state="auto",
                    menu_items=None)
 
-st.title("Q&A with :blue[Gemini Pro]")
 create_session_state()
+st.title(f"Q&A with :blue[Gemini]")
 
 
-with st.container():
-    st.write("Model Settings:")
+st.write("Model Settings:")
 
-    st.session_state['model_name'] = st.selectbox("Select A Model", config['llm']['model_options'], key='modelname')
+model_name = st.selectbox("Select A Model", config['llm']['model_options'])
+temperature_value = st.slider('Temperature :', 0.0, 1.0, float(st.session_state['temperature']))
+model_max_output_tokens = 2048 if st.session_state['model_name'] == "gemini-1.0-pro-vision-001" else 8192
+max_output_tokens = st.slider('max_output_tokens:', 1, model_max_output_tokens, st.session_state['max_output_tokens'])
+top_p_value = st.slider('Top-P :', 0.0, 1.0, float(st.session_state['top_p']))
 
-    temperature_value = st.slider('Temperature :', 0.0, 1.0, float(st.session_state['temperature']))
+submit = st.button("Submit Question")
+if submit:
     st.session_state['temperature'] = temperature_value
-
-    model_max_output_tokens = 2048 if st.session_state['model_name'] == "gemini-1.0-pro-vision-001" else 8192
-
-    max_output_tokens = st.slider('max_output_tokens:', 1, model_max_output_tokens, st.session_state['max_output_tokens'])
     st.session_state['max_output_tokens'] = max_output_tokens
-
-    top_p_value = st.slider('Top-P :', 0.0, 1.0, float(st.session_state['top_p']))
     st.session_state['top_p'] = top_p_value
+    st.session_state['model_name'] = model_name
+    st.success(f"Model updated")
 
-    if st.button("Reset Session"):
-        reset_session()
+
+if st.button("Reset Session"):
+    reset_session()
