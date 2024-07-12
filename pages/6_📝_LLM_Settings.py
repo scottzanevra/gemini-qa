@@ -28,7 +28,7 @@ model_max_output_tokens = 2048 if st.session_state['model_name'] == "gemini-1.0-
 max_output_tokens = st.slider('max_output_tokens:', 1, model_max_output_tokens, st.session_state['max_output_tokens'])
 top_p_value = st.slider('Top-P :', 0.0, 1.0, float(st.session_state['top_p']))
 
-submit = st.button("Submit Question")
+submit = st.button("Save Settings")
 if submit:
     st.session_state['temperature'] = temperature_value
     st.session_state['max_output_tokens'] = max_output_tokens

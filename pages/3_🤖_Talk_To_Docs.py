@@ -64,59 +64,6 @@ with tab2:
                 "its outputs in relevant factual information, making it useful in applications like question "
                 "answering, summarization, and chatbot conversations.")
 
-    # query = st.text_input("Input Prompt: ", key="input.rag")
-    #
-    # submit = st.button("Submit Question", key="submit.rag")
-    # st.title("")
-    # uploaded_file = st.file_uploader("Choose Your PDF File", type='pdf', key='upload.rag')
-    #
-    # temp_path = upload_to_temp(uploaded_file, suffix=".pdf")
-    #
-    # with st.expander("Show uploaded Doc"):
-    #     container_pdf, container_chat = st.columns([50, 50])
-    #     try:
-    #         if uploaded_file is not None:
-    #             docs_data = input_data_setup(uploaded_file)
-    #             binary_data = uploaded_file.getvalue()
-    #             pdf_viewer(input=binary_data, width=700, height=1000)
-    #     except Exception as e:
-    #         st.error(f"An Error occurred {e}")
-    #
-    # if temp_path and submit:
-    #     with st.spinner(f"Populating Local Vector DB... Please hold"):
-    #         try:
-    #             # load the document and split it into chunks
-    #             # split it into chunks
-    #             texts = load_pdf_split(temp_path)
-    #             # create the open-source embedding function
-    #             embedding = load_embedding()
-    #             # load it into Chroma
-    #             db = Chroma.from_texts(texts, embedding)
-    #             retriever = db.as_retriever(search_kwargs={"k": 6})
-    #         except Exception as e:
-    #             st.error(f"An Error occurred {e}")
-    #
-    # if submit:
-    #     with st.spinner(f"Gemini processing... Please hold"):
-    #         # Prompt
-    #         prompt = hub.pull("rlm/rag-prompt")
-    #         llm = VertexAI(model_name="gemini-pro", max_output_tokens=1000, temperature=0.3)
-    #
-    #         # Post-processing
-    #         def format_docs(docs):
-    #             return "\n\n".join(doc.page_content for doc in docs)
-    #
-    #         rag_chain = (
-    #                 {"context": retriever | format_docs, "question": RunnablePassthrough()}
-    #                 | prompt
-    #                 | llm
-    #                 | StrOutputParser()
-    #         )
-    #         # Question
-    #         response = rag_chain.invoke("query")
-    #         st.subheader("The Response is")
-    #         st.write(response)
-
 
 with tab3:
     st.markdown("RAG (Retrieval-Augmented Generation) and long context windows are two approaches to enhance the knowledge and capabilities of language models.")
