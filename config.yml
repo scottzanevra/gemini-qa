@@ -3,7 +3,7 @@ application:
   layout: "wide"
 
 gcp:
-  project_id: "dataplex-demo-342803"
+  project_id: "<UPDATE>"
   region: "us-central1"
 
 llm:
